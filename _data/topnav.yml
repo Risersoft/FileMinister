@@ -4,7 +4,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/Risersoft/Ed
+      external_url: https://github.com/Risersoft/FileMinister
     - title: Blog
       url: /blog
 
@@ -14,18 +14,17 @@ topnav_dropdowns:
   folders:
     - title: Help
       folderitems:
-        - title: EdNirvana Web 
-          external_url: http://www.ednirvana.com/
+        - title: FileMinister Web 
+          external_url: http://www.fileminister.com/
         
         - title: Publisher
           external_url: http://www.risersoft.com/
         
     - title: Products
       folderitems:
-        - title: EdNirvana Web
-          url: /ed-web/introduction.html
-        - title: Learner Mobile
-          url: /learner-mobile/introduction.html
+        - title: FileMinister Web
+          url: /file-minister-web/introduction.html
+       
         
         
           

@@ -3,13 +3,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="mb-3">EdNirvana Web Topics</h2>                
+                <h2 class="mb-3">FileMinister Web Topics</h2>                
             </div>            
         </div>
         <div class="row equal">
             {% assign sidebar1 = site.data.homeTopicList.entries %}
             {% for entry in sidebar1 %}
-                {% if entry.topic contains "EdNirvana" %}   
+                {% if entry.topic contains "FileMinister" %}   
                     {% for folderitem in entry.topicList %}
                         <div class="col-sm-3 mb-30">
                             <div class="boxtopics">

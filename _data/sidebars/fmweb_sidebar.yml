@@ -1,0 +1,80 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+
+entries:
+- title: Sidebar
+  product: FileMinister
+  
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Introduction
+    output: single
+    url: /file-minister-web/introduction.html
+    folderitems:
+    -
+
+  - title: History
+    output: single
+    url: /file-minister-web/history.html 
+    folderitems :
+    -
+      
+  - title: Create Folder
+    output: single
+    url: /file-minister-web/create-folder.html
+    folderitems:
+    - 
+      
+    
+  - title: Upload File
+    output: single
+    url: /file-minister-web/upload-file.html
+    folderitems:
+    
+    - 
+    
+  - title: Download File
+    output: single
+    url: /file-minister-web/download-file.html
+    folderitems:
+    - 
+    
+  - title: Delete Files and Folders
+    output: single
+    url: /file-minister-web/delete-files-and-folders.html
+    folderitems:
+    
+    - 
+    
+  - title: Move File
+    output: single
+    url: /file-minister-web/move-file.html
+    folderitems:
+    - 
+    
+  - title: Set Permission
+    output: single
+    url: /file-minister-web/set-permission.html
+    folderitems:
+    -
+    
+
+  - title: Set Tags
+    output: single
+    url: /file-minister-web/set-tags.html
+    folderitems:
+    -
+       
