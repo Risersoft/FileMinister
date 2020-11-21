@@ -1,0 +1,5 @@
+﻿TODO:
+
+FileRepository:
+- Use AutoMapper or Mapper class
+- Move all Blob/AFS handling code to BlobProvider, AFSProvider.

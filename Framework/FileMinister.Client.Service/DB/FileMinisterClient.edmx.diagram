@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="68737ca8f9014f959c41427c8f9d47f8" Name="Diagram1">
+        <EntityTypeShape EntityType="FileMinisterClient.Model.ApplicationSetting" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.DeltaOperation" Width="1.5" PointX="7.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntry" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntryLink" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntryStatus" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntryType" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntryVersionConflict" Width="1.5" PointX="10.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntryVersionConflictType" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.FileSystemEntryVersion" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.GroupFileSystemEntryPermissionAssignment" Width="1.5" PointX="5.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.Group" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.Permission" Width="1.5" PointX="3" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.Share" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.Tag" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.TagType" Width="1.5" PointX="3" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.UserFileSystemEntryPermissionAssignment" Width="1.5" PointX="5.25" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.UserGroupAssignment" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.User" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_DeltaOperations_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_DeltaOperations_FileSystemEntryStatuses_FileSystemEntryStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_DeltaOperations_FileSystemEntryVersions_FileSystemEntryVersionId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntries_FileSystemEntryTypes_FileSystemEntryTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntries_Shares_ShareId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryLinks_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryLinks_FileSystemEntries_PreviousFileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryVersionConflicts_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryVersions_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryVersions_FileSystemEntries_ParentFileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_GroupFileSystemEntryPermissionAssignments_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_Tags_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_UserFileSystemEntryPermissionAssignments_FileSystemEntries_FileSystemEntryId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_Permissions_FileSystemEntryTypes_FileSystemEntryTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryVersionConflicts_FileSystemEntryVersionConflictTypes_FileSystemEntryVersionConflictTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryVersionConflicts_FileSystemEntryVersions_FileSystemEntryVersionId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_FileSystemEntryVersions_FileSystemEntryVersions_PreviousFileSystemEntryVersionId" ManuallyRouted="false" />
+        <AssociationConnector Association="FileMinisterClient.Model.FK_Tags_TagTypes_TagTypeId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FileMinisterClient.Model.RelativePathsExcludedFromSync" Width="1.5" PointX="3.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

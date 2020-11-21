@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3c26153953e4ed0af6b7840cd786ef4" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="FileMinisterClientCommon.Model.AccountShare" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClientCommon.Model.AgentShare" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClientCommon.Model.sysdiagram" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClientCommon.Model.UserAgent" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClientCommon.Model.UserShare" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileMinisterClientCommon.Model.UserAccount" Width="1.5" PointX="0.75" PointY="1.875" />
+        <AssociationConnector Association="FileMinisterClientCommon.Model.FK_UserAgents_UserAccounts_UserAccountId" />
+        <AssociationConnector Association="FileMinisterClientCommon.Model.FK_UserShares_UserAccounts_UserAccountId" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

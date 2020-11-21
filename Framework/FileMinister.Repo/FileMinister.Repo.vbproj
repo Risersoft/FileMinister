@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE93E216-014E-4D63-8659-0544348E665A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FileMinister.Repo</RootNamespace>
+    <AssemblyName>FileMinister.Repo</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>FileMinister.Repo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>FileMinister.Repo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug2|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug2\</OutputPath>
+    <DocumentationFile>FileMinister.Repo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(Configuration)' == 'Debug2'">
+      <ItemGroup>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.app.mxengg\risersoft.app.mxengg.vbproj">
+          <Project>{4a71d8b3-6c50-42fa-b4c1-cf9aaf4b9652}</Project>
+          <Name>risersoft.app.mxengg</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.app.mxent\risersoft.app.mxent.vbproj">
+          <Project>{2693738b-de66-476d-afda-fd39e4579f27}</Project>
+          <Name>risersoft.app.mxent</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.cloud\risersoft.shared.cloud.vbproj">
+          <Project>{f5b5afa9-af4a-4b86-8d8d-502976813633}</Project>
+          <Name>risersoft.shared.cloud</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.dal\risersoft.shared.dal.vbproj">
+          <Project>{68b77483-9004-404b-b649-0e8bb780158e}</Project>
+          <Name>risersoft.shared.dal</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared\risersoft.shared.vbproj">
+          <Project>{678f7367-71bb-425c-a388-b45d25822ca3}</Project>
+          <Name>risersoft.shared</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.dotnetfx\risersoft.shared.dotnetfx.vbproj">
+          <Project>{3dc06d9d-b9b9-414c-b83c-2b9eeaaf5ea6}</Project>
+          <Name>risersoft.shared.dotnetfx</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Web\risersoft.shared.web\risersoft.shared.web.vbproj">
+          <Project>{cdfe0943-b942-4857-a99d-98230791fd8d}</Project>
+          <Name>risersoft.shared.web</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.portable\risersoft.shared.portable.csproj">
+          <Project>{1742c540-4c7d-4397-8a46-f6a6ade33c5e}</Project>
+          <Name>risersoft.shared.portable</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\ES\UnitCAD\rsoft.unitcad.provider.acadio\risersoft.unitcad.provider.acadio.vbproj">
+          <Project>{ba3ea76f-dca6-420f-839e-8f25fa997900}</Project>
+          <Name>risersoft.unitcad.provider.acadio</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\ES\UnitCAD3D\risersoft.unitcad.provider.inventor\risersoft.unitcad.provider.iv.vbproj">
+          <Project>{99c60c31-2300-402b-9c8b-f5f6814e4e5b}</Project>
+          <Name>risersoft.unitcad.provider.iv</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\..\Framework\Shared\risersoft.shared.console\risersoft.shared.agent.csproj">
+          <Project>{39e6633f-2d15-4a82-a033-ac89108616e4}</Project>
+          <Name>risersoft.shared.agent</Name>
+        </ProjectReference>
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="risersoft.app.mxent">
+          <HintPath>..\..\..\common\depends\risersoft.app.mxent.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared">
+          <HintPath>..\..\..\common\depends\risersoft.shared.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.dotnetfx">
+          <HintPath>..\..\..\common\depends\risersoft.shared.dotnetfx.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.dal">
+          <HintPath>..\..\..\common\depends\risersoft.shared.dal.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.portable">
+          <HintPath>..\..\..\common\depends\risersoft.shared.portable.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.web">
+          <HintPath>..\..\..\common\depends\risersoft.shared.web.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.cloud">
+          <HintPath>..\..\..\common\depends\risersoft.shared.cloud.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.app.mxengg">
+          <HintPath>..\..\..\common\depends\risersoft.app.mxengg.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.unitcad.provider.iv">
+          <HintPath>..\..\..\common\depends\risersoft.unitcad.provider.iv.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.unitcad.provider.acadio">
+          <HintPath>..\..\..\common\depends\risersoft.unitcad.provider.acadio.dll</HintPath>
+        </Reference>
+        <Reference Include="risersoft.shared.agent">
+          <HintPath>..\..\..\common\depends\risersoft.shared.agent.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Import Include="FileMinister.Models.Enums" />
+    <Import Include="FileMinister.Models.Sync" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="risersoft.shared.dotnetfx" />
+    <Import Include="risersoft.shared.portable.Model" />
+    <Import Include="risersoft.shared.web" />
+    <Import Include="risersoft.shared.web.IRepository" />
+    <Import Include="risersoft.shared.web.Repository" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\FileMinister.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FileMinister.edmx</DependentUpon>
+      <LastGenOutput>FileMinister.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="DB\FileMinister.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FileMinister.edmx</DependentUpon>
+      <LastGenOutput>FileMinister.vb</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="DB\FileMinister.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FileMinister.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DB\FileMinister.edmx.diagram">
+      <DependentUpon>FileMinister.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\ApplicationSetting.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\CheckinSource.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ConflictResolutionMode.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileAgent.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileAgentShare.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileConflict.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileConflictFile.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileEntry.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileEntryDeleteGroup.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileEntryDeleteGroupHierarchy.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileEntryLink.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileEntryType.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileHandle.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileMinister.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileMinister.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileMinister.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileMinister.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileMinister.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileShare.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileShareDir.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileVersion.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileVersionConflict.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileVersionConflictRequest.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileVersionConflictRequestStatu.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileVersionConflictType.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\FileVersionThruCloud.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetAllFileEntryLinks_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetAllSharesForUser_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetFileEntryChildrenHierarchyInclDeleted_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetFileEntryDeleteGroupHierarchies_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetFileEntryShare_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetGroupPermissionMatrixOnLatestFileVersionParentHierarchy_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestChildrenFileVersion_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionByPath_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionChildrenHierarchy_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionChildrens_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionChildrenWithPermission_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionDeletedChildrenWithPermission_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionDeletedParentHierarchy_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersionParentHierarchy_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetLatestFileVersion_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetUserPermissionMatrixOnLatestFileVersionParentHierarchy_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GetUsersAndGroupsHavingExclusivePermissionsOnLatestFileVersionParentHierarchy_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Group.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\GroupFileEntryPermission.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\LocalShare.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Permission.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Tag.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TagType.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\User.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\UserDomain.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\UserFileEntryPermission.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\UserGroupAssignment.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\UserMapping.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\usp_SEL_GetCheckedoutFiles_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\usp_SEL_GetCheckinFiles_Result.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\WorkSpace.vb">
+      <DependentUpon>FileMinister.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IRepository\IFileHandleRepository.vb" />
+    <Compile Include="IRepository\IShareRepository.vb" />
+    <Compile Include="IRepository\IWorkspaceRepository.vb" />
+    <Compile Include="Repository\FileHandleRepository.vb" />
+    <Compile Include="Repository\ShareRepository.vb" />
+    <Compile Include="Repository\WorkspaceRepository.vb" />
+    <Compile Include="Util\Helper.vb" />
+    <Compile Include="Util\ServerDataSyncManager.vb" />
+    <Compile Include="Util\ServiceConstants.vb" />
+    <Compile Include="Util\WebApiClientResultLocal.vb" />
+    <Compile Include="Util\WebApiClientResultServer.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\FileMinisterEntities.vb" />
+    <Compile Include="IRepository\IAccountRepository.vb" />
+    <Compile Include="IRepository\IAgentRepository.vb" />
+    <Compile Include="IRepository\IConfigRepository.vb" />
+    <Compile Include="IRepository\IFileRepository.vb" />
+    <Compile Include="IRepository\IFileVersionRepository.vb" />
+    <Compile Include="IRepository\IGroupFilePermissionRepository.vb" />
+    <Compile Include="IRepository\IPermissionRepository.vb" />
+    <Compile Include="IRepository\ISyncRepository.vb" />
+    <Compile Include="IRepository\ITagRepository.vb" />
+    <Compile Include="IRepository\IUserFilePermissionRepository.vb" />
+    <Compile Include="IRepository\IUserGroupRepository.vb" />
+    <Compile Include="IRepository\IUserRepository.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Repository\AccountRepository.vb" />
+    <Compile Include="Repository\AgentRepository.vb" />
+    <Compile Include="Repository\ConfigRepository.vb" />
+    <Compile Include="Repository\FileRepository.vb" />
+    <Compile Include="Repository\FileRepositoryAzureHelper.vb" />
+    <Compile Include="Repository\FileRepositoryMapHelper.vb" />
+    <Compile Include="Repository\FileVersionRepository.vb" />
+    <Compile Include="Repository\GroupFilePermissionRepository.vb" />
+    <Compile Include="Repository\PermissionRepository.vb" />
+    <Compile Include="Repository\ServerRepositoryBase.vb" />
+    <Compile Include="Repository\SyncRepository.vb" />
+    <Compile Include="Repository\TagRepository.vb" />
+    <Compile Include="Repository\UserFilePermissionRepository.vb" />
+    <Compile Include="Repository\UserGroupRepository.vb" />
+    <Compile Include="Repository\UserRepository.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\notes.txt" />
+    <Content Include="Repository\notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator">
+      <Version>2.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.KeyVault.Core">
+      <Version>3.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.WebJobs">
+      <Version>3.0.23</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.Services.Client">
+      <Version>5.8.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime.Azure">
+      <Version>3.3.19</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Emit">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Unity">
+      <Version>5.11.7</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Abstractions">
+      <Version>5.11.6</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Container">
+      <Version>5.11.8</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Interception">
+      <Version>5.11.1</Version>
+    </PackageReference>
+    <PackageReference Include="WindowsAzure.Storage">
+      <Version>9.3.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileMinister.Models\FileMinister.Models.csproj">
+      <Project>{85eb0fe6-7f8f-417e-942d-59d687ee1896}</Project>
+      <Name>FileMinister.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

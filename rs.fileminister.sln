@@ -1,0 +1,87 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "risersoft.shared.web.mvc", "..\Common\Web\risersoft.shared.web.mvc\risersoft.shared.web.mvc.csproj", "{E0CC17DC-880D-47B0-B8F5-1C981F76C662}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FileMinister.Repo", "Framework\FileMinister.Repo\FileMinister.Repo.vbproj", "{DE93E216-014E-4D63-8659-0544348E665A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileMinister.Models", "Framework\FileMinister.Models\FileMinister.Models.csproj", "{85EB0FE6-7F8F-417E-942D-59D687EE1896}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FileMinister.CloudAgent", "Services\FileMinister.CloudAgent\FileMinister.CloudAgent.vbproj", "{05EE1F9B-DBBA-4C8D-9517-B93129242FE4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FileMinister.Web", "Web\FileMinister.Web\FileMinister.Web.vbproj", "{7B4D9248-92BD-4D23-898B-B9920E0588B2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FileMinister.ClientAgent", "Services\FileMinister.ClientAgent\FileMinister.ClientAgent.vbproj", "{0407EE28-B2AA-41CA-B62B-C298CD9DF540}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FileMinister.ServiceProxy", "Services\FileMinister.ServiceProxy\FileMinister.ServiceProxy.vbproj", "{3370B65D-78F3-4D0E-93FE-247737247397}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0CC17DC-880D-47B0-B8F5-1C981F76C662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0CC17DC-880D-47B0-B8F5-1C981F76C662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0CC17DC-880D-47B0-B8F5-1C981F76C662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0CC17DC-880D-47B0-B8F5-1C981F76C662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE93E216-014E-4D63-8659-0544348E665A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE93E216-014E-4D63-8659-0544348E665A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE93E216-014E-4D63-8659-0544348E665A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE93E216-014E-4D63-8659-0544348E665A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85EB0FE6-7F8F-417E-942D-59D687EE1896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85EB0FE6-7F8F-417E-942D-59D687EE1896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85EB0FE6-7F8F-417E-942D-59D687EE1896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85EB0FE6-7F8F-417E-942D-59D687EE1896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05EE1F9B-DBBA-4C8D-9517-B93129242FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05EE1F9B-DBBA-4C8D-9517-B93129242FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05EE1F9B-DBBA-4C8D-9517-B93129242FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05EE1F9B-DBBA-4C8D-9517-B93129242FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B4D9248-92BD-4D23-898B-B9920E0588B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B4D9248-92BD-4D23-898B-B9920E0588B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B4D9248-92BD-4D23-898B-B9920E0588B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B4D9248-92BD-4D23-898B-B9920E0588B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0407EE28-B2AA-41CA-B62B-C298CD9DF540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0407EE28-B2AA-41CA-B62B-C298CD9DF540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0407EE28-B2AA-41CA-B62B-C298CD9DF540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0407EE28-B2AA-41CA-B62B-C298CD9DF540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3370B65D-78F3-4D0E-93FE-247737247397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3370B65D-78F3-4D0E-93FE-247737247397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3370B65D-78F3-4D0E-93FE-247737247397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3370B65D-78F3-4D0E-93FE-247737247397}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE5BF79A-63ED-4BE1-8790-5A81BBC3656B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rsds.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Framework\\FileMinister.Repo\\FileMinister.Repo.vbproj
+		SccProjectName1 = Framework/FileMinister.Repo
+		SccLocalPath1 = Framework\\FileMinister.Repo
+		SccProjectUniqueName2 = Framework\\FileMinister.Models\\FileMinister.Models.csproj
+		SccProjectName2 = Framework/FileMinister.Models
+		SccLocalPath2 = Framework\\FileMinister.Models
+		SccProjectUniqueName3 = Services\\FileMinister.CloudAgent\\FileMinister.CloudAgent.vbproj
+		SccProjectName3 = Services/FileMinister.CloudAgent
+		SccLocalPath3 = Services\\FileMinister.CloudAgent
+		SccProjectUniqueName4 = Web\\FileMinister.Web\\FileMinister.Web.vbproj
+		SccProjectName4 = Web/FileMinister.Web
+		SccLocalPath4 = Web\\FileMinister.Web
+		SccProjectUniqueName5 = Services\\FileMinister.ClientAgent\\FileMinister.ClientAgent.vbproj
+		SccProjectName5 = Services/FileMinister.ClientAgent
+		SccLocalPath5 = Services\\FileMinister.ClientAgent
+		SccProjectUniqueName6 = Services\\FileMinister.ServiceProxy\\FileMinister.ServiceProxy.vbproj
+		SccProjectName6 = Services/FileMinister.ServiceProxy
+		SccLocalPath6 = Services\\FileMinister.ServiceProxy
+		SccProjectUniqueName7 = ..\\Common\\Web\\risersoft.shared.web.mvc\\risersoft.shared.web.mvc.csproj
+		SccProjectName7 = ../Common/Web/risersoft.shared.web.mvc
+		SccLocalPath7 = ..\\Common\\Web\\risersoft.shared.web.mvc
+	EndGlobalSection
+EndGlobal

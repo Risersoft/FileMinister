@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="427c927c-6463-4488-a2a6-b05ccf215cf2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>true</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.5.100:2016/FileSyncService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FileSyncService.xsd" MetadataType="Schema" ID="72ac00d7-43f1-4840-b43d-c8d44c0d07a5" SourceId="1" SourceUrl="http://192.168.5.100:2016/FileSyncService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FileSyncService1.xsd" MetadataType="Schema" ID="189cf089-ac47-4535-99fb-68e677efb771" SourceId="1" SourceUrl="http://192.168.5.100:2016/FileSyncService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileSyncService2.xsd" MetadataType="Schema" ID="a15b0f39-0c9d-4771-aa90-c0477fad4c31" SourceId="1" SourceUrl="http://192.168.5.100:2016/FileSyncService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileSyncService.disco" MetadataType="Disco" ID="7ffa6353-4200-46f2-9589-d8fa5488007c" SourceId="1" SourceUrl="http://192.168.5.100:2016/FileSyncService.svc?disco" />
+    <MetadataFile FileName="FileSyncService.wsdl" MetadataType="Wsdl" ID="85d9e77d-346f-45e5-b1c4-b7c9a240e1b7" SourceId="1" SourceUrl="http://192.168.5.100:2016/FileSyncService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

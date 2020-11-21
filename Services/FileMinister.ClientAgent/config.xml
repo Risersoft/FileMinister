@@ -1,0 +1,9 @@
+<ROOT>
+	<clientid>YXR5@U7YZTBA</clientid>
+	<clientsecret>3BP@WR</clientsecret>
+	<authority>http://login.risersoft.com</authority>
+    <cloudservice>http://localhost:50648/</cloudservice>
+	<agentid>08725A3E-A2F8-E711-A2B1-00269E024C78</agentid>
+	<agentsecret>xx</agentsecret>
+  <workspaceid>3CEBCB23-ADFF-442B-8A02-EA57C9AF85E6</workspaceid>
+</ROOT>

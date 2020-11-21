@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90eee5914c1044d181857a0e240c9f8e" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="FileMinisterModel.ApplicationSetting" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileAgent" Width="1.5" PointX="1.5" PointY="6.25" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileAgentShare" Width="1.5" PointX="3" PointY="18.875" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileEntry" Width="1.5" PointX="6" PointY="17.5" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileEntryLink" Width="1.5" PointX="8.25" PointY="11.75" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileEntryType" Width="1.5" PointX="3.75" PointY="23.5" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileShare" Width="1.5" PointX="0.75" PointY="16.875" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileVersion" Width="1.5" PointX="8.25" PointY="33.875" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileVersionConflict" Width="1.5" PointX="10.5" PointY="26" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileVersionConflictRequest" Width="1.5" PointX="12.75" PointY="27" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileVersionConflictRequestStatu" Width="1.5" PointX="10.5" PointY="22.5" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileVersionConflictType" Width="1.5" PointX="8.25" PointY="26.5" />
+        <EntityTypeShape EntityType="FileMinisterModel.GroupFileEntryPermission" Width="1.5" PointX="8.25" PointY="20.125" />
+        <EntityTypeShape EntityType="FileMinisterModel.Group" Width="1.5" PointX="3.75" PointY="1.125" />
+        <EntityTypeShape EntityType="FileMinisterModel.LocalShare" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="FileMinisterModel.Permission" Width="1.5" PointX="6" PointY="24.5" />
+        <EntityTypeShape EntityType="FileMinisterModel.Tag" Width="1.5" PointX="8.25" PointY="15.625" />
+        <EntityTypeShape EntityType="FileMinisterModel.TagType" Width="1.5" PointX="6" PointY="14.625" />
+        <EntityTypeShape EntityType="FileMinisterModel.UserDomain" Width="1.5" PointX="1.5" PointY="2.125" />
+        <EntityTypeShape EntityType="FileMinisterModel.UserFileEntryPermission" Width="1.5" PointX="8.25" PointY="29.75" />
+        <EntityTypeShape EntityType="FileMinisterModel.UserGroupAssignment" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="FileMinisterModel.UserMapping" Width="1.5" PointX="3.75" PointY="26.75" />
+        <EntityTypeShape EntityType="FileMinisterModel.User" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FileMinisterModel.WorkSpace" Width="1.5" PointX="0.75" PointY="10.25" />
+        <AssociationConnector Association="FileMinisterModel.FK_AgentMacAddresses_Agents_AgentId" />
+        <AssociationConnector Association="FileMinisterModel.FK_AgentShares_Agents_AgentId" />
+        <AssociationConnector Association="FileMinisterModel.FK_AgentShares_Shares_ShareId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntries_FileSystemEntryTypes_FileSystemEntryTypeId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntries_Shares_ShareId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryLinks_FileSystemEntries_FileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryLinks_FileSystemEntries_PreviousFileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersionConflicts_FileSystemEntries_FileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersions_FileSystemEntries_FileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersions_FileSystemEntries_ParentFileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_GroupFileSystemEntryPermissionAssignments_FileSystemEntries_FileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_Tags_FileSystemEntries_FileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_UserFileSystemEntryPermissionAssignments_FileSystemEntries_FileSystemEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_Permissions_FileSystemEntryTypes_FileSystemEntryTypeId" />
+        <AssociationConnector Association="FileMinisterModel.FK_LocalShare_LocalShare" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersionConflicts_FileSystemEntryVersions_FileSystemEntryVersionId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersions_FileSystemEntryVersions_PreviousFileSystemEntryVersionId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersionConflictRequests_FileSystemEntryVersionConflicts_FileSystemEntryVersionConflictId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersionConflicts_FileSystemEntryVersionConflictTypes_FileSystemEntryVersionConflictTypeId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileSystemEntryVersionConflictRequests_ConflictRequestStatuses_RequestStatusId" />
+        <AssociationConnector Association="FileMinisterModel.FK_UserGroupAssignments_Groups" />
+        <AssociationConnector Association="FileMinisterModel.FK_LocalShare_WorkSpace" />
+        <AssociationConnector Association="FileMinisterModel.FK_Tags_TagTypes_TagTypeId" />
+        <AssociationConnector Association="FileMinisterModel.FK_UserMapping_UserDomain" />
+        <AssociationConnector Association="FileMinisterModel.FK_WorkSpace_UserDomain" />
+        <AssociationConnector Association="FileMinisterModel.FK_UserGroupAssignments_Users" />
+        <EntityTypeShape EntityType="FileMinisterModel.CheckinSource" Width="1.5" PointX="6" PointY="36.125" />
+        <EntityTypeShape EntityType="FileMinisterModel.ConflictResolutionMode" Width="1.5" PointX="9" PointY="6" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileConflict" Width="1.5" PointX="11.25" PointY="14.375" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileConflictFile" Width="1.5" PointX="13.5" PointY="14.5" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileHandle" Width="1.5" PointX="8.25" PointY="41" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileVersionThruCloud" Width="1.5" PointX="10.5" PointY="35.75" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileVersion_CheckinSource" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileConflict_ConflictResolutionMode" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileConflict_FileEntry" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileConflictFile_FileConflict" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileHandle_WorkSpace" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileVersionThruCloud_FileHandle" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileVersionThruCloud_FileVersion" />
+        <AssociationConnector Association="FileMinisterModel.FK_TagTypes_TagTypes" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileEntryDeleteGroupHierarchy" Width="1.5" PointX="11.25" PointY="18.125" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileShareDir" Width="1.5" PointX="3" PointY="31.75" />
+        <AssociationConnector Association="FileMinisterModel.fk_FileEntryDeleteGroupHierarchy_FileEntry_FileEntryId" />
+        <AssociationConnector Association="FileMinisterModel.fk_FileEntryDeleteGroupHierarchy_FileEntry_ParentFileEntryId" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileStoreDir_FileStore" />
+        <EntityTypeShape EntityType="FileMinisterModel.FileEntryDeleteGroup" Width="1.5" PointX="8.375" PointY="0.875" />
+        <AssociationConnector Association="FileMinisterModel.FK_FileEntryDeleteGroupHierarchy_FileEntryDeleteGroup" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

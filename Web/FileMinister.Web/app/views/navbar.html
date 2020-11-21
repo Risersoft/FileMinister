@@ -1,0 +1,41 @@
+﻿<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-xs logo-brand" href="" ng-click="fileNavigator.goTo(-1)">File Minister</a>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <div class="navbar-form navbar-right">
+                <input type="text" class="form-control input-sm" placeholder="Search..." ng-change="FileSearch()" ng-model="$parent.query">
+                <button class="btn btn-default btn-sm" ng-click="modal('downloadfile')">
+                    <i class="glyphicon glyphicon-cloud-download"></i> DOWNLOAD FILES
+                </button>
+                <button class="btn btn-default btn-sm" ng-click="modal('uploadfile')">
+                    <i class="glyphicon glyphicon-cloud-upload"></i> UPLOAD FILES
+                </button>
+                <button class="btn btn-default btn-sm" ng-click="$parent.setTemplate('main-icons.html')" ng-show="false" title="icons">
+                    <i class="glyphicon glyphicon-th-large"></i>
+                </button>
+                <button class="btn btn-default btn-sm" ng-click="$parent.setTemplate('main-table.html')" ng-show="true" title="list">
+                    <i class="glyphicon glyphicon-th-list"></i>
+                </button>
+
+                <div class="pull-right useraccount" ng-controller="FileController as ctrl">
+                    <span class="padding-right10"> Welcome {{userDetail.userName}} [{{selectedAccount.accountName}}]</span> 
+                    <span>
+                        <a class="" ng-click="ctrl.openAccountSelectionDialog()" title="switch account">
+                            <i class="fa fa-exchange" aria-hidden="true"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</nav>

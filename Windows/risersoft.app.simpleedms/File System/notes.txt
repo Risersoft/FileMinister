@@ -1,0 +1,24 @@
+﻿http://stackoverflow.com/questions/12961471/wcf-service-vs-window-service
+http://www.codeproject.com/Articles/15656/Advanced-FileSystemWatcher
+http://stackoverflow.com/questions/11999335/windows-service-w-filesystemwatcher-in-c-sharp
+http://www.dotnetbull.com/2013/06/filesystemwatcher-multiple-folder.html
+http://www.codeproject.com/Articles/18521/How-to-implement-a-simple-filewatcher-Windows-serv
+
+
+Conclusion:
+
+Right now, make SEDMS_Serv.exe that runs as an application
+Keep in mind that it might be converted to a service later (UI/Code separation)
+Backer/mailer scheduler needs to be managed.
+
+Handle.exe is for local files, and other Win32/.NET util functions also
+for remote files, we need to use psfile/openfiles. going with psfile for now.
+
+TODO:
+
+1. frmPIDUnit for SEDMS, with PIDUnittype, handledby and WOAllowFolder selection
+2. PIDUnitType Template Definition and creation of foldername according to that definition
+3. Change of Server version to include activity catching and storage.
+4. change of server version into service with task scheduler
+5. FileStore Editing with permission checking
+6. remove wdggroupnum,coregroupnum,tankgroupnum fields and storing group number general information in xml file.

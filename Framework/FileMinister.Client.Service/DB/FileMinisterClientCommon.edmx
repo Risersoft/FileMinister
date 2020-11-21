@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FileMinisterClientCommon.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountShares">
+          <Key>
+            <PropertyRef Name="ShareId" />
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="ShareId" Type="int" Nullable="false" />
+          <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByUserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgentShares">
+          <Key>
+            <PropertyRef Name="AgentShareId" />
+          </Key>
+          <Property Name="AgentShareId" Type="int" Nullable="false" />
+          <Property Name="AgentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ShareId" Type="int" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="datetime" Nullable="false" />
+          <Property Name="CreatedByUserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserAccounts">
+          <Key>
+            <PropertyRef Name="UserAccountId" />
+          </Key>
+          <Property Name="UserAccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="WindowsUserSID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CloudSyncServiceURL" Type="nvarchar" MaxLength="125" Nullable="false" />
+          <Property Name="CloudSyncSyncServiceURL" Type="nvarchar" MaxLength="125" Nullable="false" />
+          <Property Name="LocalDatabaseName" Type="nvarchar" MaxLength="125" Nullable="false" />
+          <Property Name="AccessToken" Type="ntext" />
+          <Property Name="LastLoggedInUTC" Type="datetime" Nullable="false" />
+          <Property Name="WorkSpaceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="datetime" Nullable="false" />
+          <Property Name="OrganisationServiceURL" Type="nvarchar" MaxLength="125" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAgents">
+          <Key>
+            <PropertyRef Name="UserAgentId" />
+          </Key>
+          <Property Name="UserAgentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserAccountId" Type="int" Nullable="false" />
+          <Property Name="AgentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastLoggedInUTC" Type="datetime" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserShares">
+          <Key>
+            <PropertyRef Name="UserAccountId" />
+            <PropertyRef Name="ShareId" />
+          </Key>
+          <Property Name="UserAccountId" Type="int" Nullable="false" />
+          <Property Name="ShareId" Type="int" Nullable="false" />
+          <Property Name="SharePath" Type="nvarchar" MaxLength="125" Nullable="false" />
+          <Property Name="WindowsUser" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastSyncedUTC" Type="datetime" />
+          <Property Name="CreatedOnUTC" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UserAgents_UserAccounts_UserAccountId">
+          <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+          <End Role="UserAgents" Type="Self.UserAgents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccounts">
+              <PropertyRef Name="UserAccountId" />
+            </Principal>
+            <Dependent Role="UserAgents">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserShares_UserAccounts_UserAccountId">
+          <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+          <End Role="UserShares" Type="Self.UserShares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccounts">
+              <PropertyRef Name="UserAccountId" />
+            </Principal>
+            <Dependent Role="UserShares">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetMappedSharesForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="WindowsSID" Type="nvarchar" Mode="In" />
+          <Parameter Name="AccountId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="RoleId" Type="tinyint" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ShareId" Type="int" Nullable="false" />
+                <Property Name="ShareName" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="SharePath" Type="nvarchar" MaxLength="125" />
+                <Property Name="WindowsUser" Type="nvarchar" MaxLength="100" />
+                <Property Name="Password" Type="nvarchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="usp_UPD_AgentShare" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccountId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <EntityContainer Name="FileMinisterClientCommonModelStoreContainer">
+          <EntitySet Name="AccountShares" EntityType="Self.AccountShares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentShares" EntityType="Self.AgentShares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccounts" EntityType="Self.UserAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAgents" EntityType="Self.UserAgents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserShares" EntityType="Self.UserShares" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_UserAgents_UserAccounts_UserAccountId" Association="Self.FK_UserAgents_UserAccounts_UserAccountId">
+            <End Role="UserAccounts" EntitySet="UserAccounts" />
+            <End Role="UserAgents" EntitySet="UserAgents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserShares_UserAccounts_UserAccountId" Association="Self.FK_UserShares_UserAccounts_UserAccountId">
+            <End Role="UserAccounts" EntitySet="UserAccounts" />
+            <End Role="UserShares" EntitySet="UserShares" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FileMinisterClientCommon.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GetMappedSharesForUser_Result">
+          <Property Name="ShareId" Type="Int32" Nullable="false" />
+          <Property Name="ShareName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SharePath" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="WindowsUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <EntityType Name="AccountShare">
+          <Key>
+            <PropertyRef Name="ShareId" />
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="ShareId" Type="Int32" Nullable="false" />
+          <Property Name="AccountId" Type="Guid" Nullable="false" />
+          <Property Name="ShareName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByUserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgentShare">
+          <Key>
+            <PropertyRef Name="AgentShareId" />
+          </Key>
+          <Property Name="AgentShareId" Type="Int32" Nullable="false" />
+          <Property Name="AgentId" Type="Guid" Nullable="false" />
+          <Property Name="ShareId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedByUserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserAgent">
+          <Key>
+            <PropertyRef Name="UserAgentId" />
+          </Key>
+          <Property Name="UserAgentId" Type="Guid" Nullable="false" />
+          <Property Name="UserAccountId" Type="Int32" Nullable="false" />
+          <Property Name="AgentId" Type="Guid" Nullable="false" />
+          <Property Name="AgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastLoggedInUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedOnUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserAccount" Relationship="FileMinisterClientCommon.Model.FK_UserAgents_UserAccounts_UserAccountId" FromRole="UserAgent" ToRole="UserAccount" />
+        </EntityType>
+        <EntityType Name="UserShare">
+          <Key>
+            <PropertyRef Name="UserAccountId" />
+            <PropertyRef Name="ShareId" />
+          </Key>
+          <Property Name="UserAccountId" Type="Int32" Nullable="false" />
+          <Property Name="ShareId" Type="Int32" Nullable="false" />
+          <Property Name="SharePath" Type="String" MaxLength="125" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WindowsUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastSyncedUTC" Type="DateTime" Precision="3" />
+          <Property Name="CreatedOnUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserAccount" Relationship="FileMinisterClientCommon.Model.FK_UserShares_UserAccounts_UserAccountId" FromRole="UserShare" ToRole="UserAccount" />
+        </EntityType>
+        <EntityContainer Name="FileMinisterClientCommonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountShares" EntityType="Self.AccountShare" />
+          <EntitySet Name="AgentShares" EntityType="Self.AgentShare" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserAgents" EntityType="Self.UserAgent" />
+          <EntitySet Name="UserShares" EntityType="Self.UserShare" />
+          <FunctionImport Name="GetMappedSharesForUser" IsComposable="true" ReturnType="Collection(FileMinisterClientCommon.Model.GetMappedSharesForUser_Result)">
+            <Parameter Name="UserId" Mode="In" Type="Guid" />
+            <Parameter Name="WindowsSID" Mode="In" Type="String" />
+            <Parameter Name="AccountId" Mode="In" Type="Guid" />
+            <Parameter Name="RoleId" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UPD_AgentShare">
+          <Parameter Name="AccountId" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <EntitySet Name="UserAccounts" EntityType="FileMinisterClientCommon.Model.UserAccount" />
+          <AssociationSet Name="FK_UserAgents_UserAccounts_UserAccountId" Association="FileMinisterClientCommon.Model.FK_UserAgents_UserAccounts_UserAccountId">
+            <End Role="UserAccount" EntitySet="UserAccounts" />
+            <End Role="UserAgent" EntitySet="UserAgents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserShares_UserAccounts_UserAccountId" Association="FileMinisterClientCommon.Model.FK_UserShares_UserAccounts_UserAccountId">
+            <End Role="UserAccount" EntitySet="UserAccounts" />
+            <End Role="UserShare" EntitySet="UserShares" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="UserAccountId" />
+          </Key>
+          <Property Name="UserAccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="AccountId" Type="Guid" Nullable="false" />
+          <Property Name="AccountName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="WindowsUserSID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CloudSyncServiceURL" Type="String" Nullable="false" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="CloudSyncSyncServiceURL" Type="String" Nullable="false" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="LocalDatabaseName" Type="String" Nullable="false" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="AccessToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoggedInUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WorkSpaceId" Type="Guid" Nullable="false" />
+          <Property Name="CreatedOnUTC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrganisationServiceURL" Type="String" Nullable="false" MaxLength="125" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserAgents" Relationship="FileMinisterClientCommon.Model.FK_UserAgents_UserAccounts_UserAccountId" FromRole="UserAccount" ToRole="UserAgent" />
+          <NavigationProperty Name="UserShares" Relationship="FileMinisterClientCommon.Model.FK_UserShares_UserAccounts_UserAccountId" FromRole="UserAccount" ToRole="UserShare" />
+        </EntityType>
+        <Association Name="FK_UserAgents_UserAccounts_UserAccountId">
+          <End Type="FileMinisterClientCommon.Model.UserAccount" Role="UserAccount" Multiplicity="1" />
+          <End Type="FileMinisterClientCommon.Model.UserAgent" Role="UserAgent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccount">
+              <PropertyRef Name="UserAccountId" />
+            </Principal>
+            <Dependent Role="UserAgent">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserShares_UserAccounts_UserAccountId">
+          <End Type="FileMinisterClientCommon.Model.UserAccount" Role="UserAccount" Multiplicity="1" />
+          <End Type="FileMinisterClientCommon.Model.UserShare" Role="UserShare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccount">
+              <PropertyRef Name="UserAccountId" />
+            </Principal>
+            <Dependent Role="UserShare">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FileMinisterClientCommonModelStoreContainer" CdmEntityContainer="FileMinisterClientCommonEntities">
+          <EntitySetMapping Name="AccountShares">
+            <EntityTypeMapping TypeName="FileMinisterClientCommon.Model.AccountShare">
+              <MappingFragment StoreEntitySet="AccountShares">
+                <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="ShareName" ColumnName="ShareName" />
+                <ScalarProperty Name="CreatedOnUTC" ColumnName="CreatedOnUTC" />
+                <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentShares">
+            <EntityTypeMapping TypeName="FileMinisterClientCommon.Model.AgentShare">
+              <MappingFragment StoreEntitySet="AgentShares">
+                <ScalarProperty Name="AgentShareId" ColumnName="AgentShareId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+                <ScalarProperty Name="CreatedOnUTC" ColumnName="CreatedOnUTC" />
+                <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FileMinisterClientCommon.Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAgents">
+            <EntityTypeMapping TypeName="FileMinisterClientCommon.Model.UserAgent">
+              <MappingFragment StoreEntitySet="UserAgents">
+                <ScalarProperty Name="UserAgentId" ColumnName="UserAgentId" />
+                <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="LastLoggedInUTC" ColumnName="LastLoggedInUTC" />
+                <ScalarProperty Name="CreatedOnUTC" ColumnName="CreatedOnUTC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserShares">
+            <EntityTypeMapping TypeName="FileMinisterClientCommon.Model.UserShare">
+              <MappingFragment StoreEntitySet="UserShares">
+                <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+                <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+                <ScalarProperty Name="SharePath" ColumnName="SharePath" />
+                <ScalarProperty Name="WindowsUser" ColumnName="WindowsUser" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastSyncedUTC" ColumnName="LastSyncedUTC" />
+                <ScalarProperty Name="CreatedOnUTC" ColumnName="CreatedOnUTC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="FileMinisterClientCommon.Model.Store.GetMappedSharesForUser" FunctionImportName="GetMappedSharesForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FileMinisterClientCommon.Model.GetMappedSharesForUser_Result">
+                <ScalarProperty Name="ShareId" ColumnName="ShareId" />
+                <ScalarProperty Name="ShareName" ColumnName="ShareName" />
+                <ScalarProperty Name="SharePath" ColumnName="SharePath" />
+                <ScalarProperty Name="WindowsUser" ColumnName="WindowsUser" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_UPD_AgentShare" FunctionName="FileMinisterClientCommon.Model.Store.usp_UPD_AgentShare" />
+          <EntitySetMapping Name="UserAccounts">
+            <EntityTypeMapping TypeName="FileMinisterClientCommon.Model.UserAccount">
+              <MappingFragment StoreEntitySet="UserAccounts">
+                <ScalarProperty Name="OrganisationServiceURL" ColumnName="OrganisationServiceURL" />
+                <ScalarProperty Name="CreatedOnUTC" ColumnName="CreatedOnUTC" />
+                <ScalarProperty Name="WorkSpaceId" ColumnName="WorkSpaceId" />
+                <ScalarProperty Name="LastLoggedInUTC" ColumnName="LastLoggedInUTC" />
+                <ScalarProperty Name="AccessToken" ColumnName="AccessToken" />
+                <ScalarProperty Name="LocalDatabaseName" ColumnName="LocalDatabaseName" />
+                <ScalarProperty Name="CloudSyncSyncServiceURL" ColumnName="CloudSyncSyncServiceURL" />
+                <ScalarProperty Name="CloudSyncServiceURL" ColumnName="CloudSyncServiceURL" />
+                <ScalarProperty Name="WindowsUserSID" ColumnName="WindowsUserSID" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

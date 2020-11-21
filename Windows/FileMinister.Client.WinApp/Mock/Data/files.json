@@ -1,0 +1,8 @@
+﻿[
+	{"FileId": "A06926C3-A863-42D7-B131-E558070CACB4", "FileName": "HR", "FileType": 1, "FileNameWithExtension": "HR"},
+	{"FileId": "4A8CD40F-76AC-435C-818F-2F2CAAB9CCF2", "FileName": "Finance", "FileType": 1, "FileNameWithExtension": "Finance"},
+	{"FileId": "970447C7-2B84-4862-A079-5E2B421CD200", "FileName": "IT", "FileType": 1, "FileNameWithExtension": "IT"},
+	{"FileId": "DC947598-1E8B-46A1-824C-FA1DFA286E68", "ParentFileId": "A06926C3-A863-42D7-B131-E558070CACB4", "FileName": "HR Policies", "FileType": 2, "FileNameWithExtension": "HR Policies"},
+	{"FileId": "4683836F-1715-4FA0-8029-9530DC2A5FC8", "ParentFileId": "A06926C3-A863-42D7-B131-E558070CACB4", "FileName": "Vacancies", "FileType": 2, "FileNameWithExtension": "Vacancies"},
+	{"FileId": "771D7892-A930-420E-B396-CBCC58C3BB68", "ParentFileId": "4A8CD40F-76AC-435C-818F-2F2CAAB9CCF2", "FileName": "Finance Policies", "FileType": 1, "FileNameWithExtension": "Finance Policies"}
+]
